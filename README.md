@@ -1,73 +1,51 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 채팅 애플리케이션
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+채팅 애플리케이션에 오신 것을 환영합니다! 이 가이드는 애플리케이션을 설정하고 실행하는 데 도움을 드립니다.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🛠️ 설정 방법
 
-## Description
+### 사전 준비
+- Docker가 설치되고 실행 중인지 확인하세요.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### 데이터베이스 설정
+MongoDB 데이터베이스를 시작하려면 `docker-compose.yml` 파일이 있는 디렉토리에서 다음 명령어를 실행하세요:
 
-## Installation
-
-```bash
-$ yarn install
+```sh
+docker run -d --name chat-app \
+-e MONGO_INITDB_ROOT_USERNAME=mongoadmin \
+-e MONGO_INITDB_ROOT_PASSWORD=test \
+-p 27017:27017 \
+mongo
 ```
 
-## Running the app
+### 서버 설정
+서버를 시작하려면 다음 명령어를 실행하세요:
 
-```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+```sh
+yarn start
 ```
 
-## Test
+### 유닛 테스트 실행
+서버의 유닛 테스트를 실행하려면 다음 명령어를 사용하세요:
 
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+```sh
+yarn test
 ```
 
-## Support
+### E2E 테스트 실행
+엔드 투 엔드 테스트를 실행하려면 다음 명령어를 사용하세요:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```sh
+yarn test:e2e
+```
 
-## Stay in touch
+### 💬 테스트에 대한 참고 사항
+시간상의 제약으로 인해 일부 테스트 코드만 추가되었습니다. 제공된 테스트는 `controller`와 `service` 유닛 테스트 및 일부 엔드 투 엔드 테스트를 포함합니다. 다른 리소스에 대해서도 유사하게 테스트를 추가할 수 있습니다.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 🛠️ 기술 스택
+- **백엔드 프레임워크**: Nest.js
+- **언어**: TypeScript
+- **데이터베이스**: MongoDB
 
-## License
-
-Nest is [MIT licensed](LICENSE).
+감사합니다! 🎉
+```
