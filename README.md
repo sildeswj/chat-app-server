@@ -11,11 +11,7 @@
 MongoDB 데이터베이스를 시작하려면 `docker-compose.yml` 파일이 있는 디렉토리에서 다음 명령어를 실행하세요:
 
 ```sh
-docker run -d --name chat-app \
--e MONGO_INITDB_ROOT_USERNAME=mongoadmin \
--e MONGO_INITDB_ROOT_PASSWORD=test \
--p 27017:27017 \
-mongo
+docker compose up -d
 ```
 
 ### 서버 설정
